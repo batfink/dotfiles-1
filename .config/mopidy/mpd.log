@@ -1,0 +1,6 @@
+Apr 27 15:30 : config: inotify: auto_update was disabled. enable during compilation phase
+Apr 27 15:30 : config: option 'enabled' on line 20 was not recognized
+Apr 27 15:31 : client: [0] opened from 127.0.0.1:53256
+Apr 27 15:31 : client: [0] closed
+Apr 27 15:31 : client: [1] opened from 127.0.0.1:53258
+Apr 27 15:31 : client: [1] closed

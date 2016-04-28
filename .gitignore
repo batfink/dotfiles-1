@@ -1,0 +1,8 @@
+undodir
+
+.DS_Store
+
+secrets/*
+!secrets/*.sample.*
+
+.config/mopidy/mpd.conf
