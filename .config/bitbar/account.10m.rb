@@ -34,7 +34,7 @@ class CoinbaseWallet
 end
 
 
-creds = YAML.load_file('/Users/codycallahan/dotfiles/secrets.yml')
+creds = YAML.load_file('/Users/codycallahan/dotfiles/secrets/coinbase.yml')
 wallet = CoinbaseWallet.new(creds["coinbase"]["api_key"], creds["coinbase"]["api_secret"])
 puts "  $#{wallet.balance["data"]["native_balance"]["amount"]}  "
 

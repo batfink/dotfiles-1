@@ -6,3 +6,4 @@ secrets/*
 !secrets/*.sample.*
 
 .config/mopidy/mpd.conf
+.config/git/gitconfig

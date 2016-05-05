@@ -20,13 +20,13 @@ root: ~/Documents/shortstack_apps
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-# startup_window: logs
+startup_window: dealkit
 
 windows:
-  - mysql: cd docker_mysql; dc up
-  - dealkit: cd DealKit/; dc up
-  - shortstack: cd shortstack/; dc up
-  - server: cd shortstack-server/; dc up
-  - designer: cd shortstack-designer/; dc up
-  - api: cd shortstack-api/; dc up
+  - mysql:       cd docker_mysql; dc up
+  - dealkit:     sleep 5 && cd DealKit/; dc up
+  - shortstack:  sleep 5 && cd shortstack/; dc up
+  - server:      sleep 5 && cd shortstack-server/; dc up
+  - designer:    sleep 5 && cd shortstack-designer/; dc up
+  - api:         sleep 5 && cd shortstack-api/; dc up
 

@@ -116,6 +116,8 @@ set -g prefix C-g
 
 unbind C-c # I don't want this to create new sessions
 
+set-option -g allow-rename off
+
 #--------------------------------------------------------------------------------------
 # Theme colors
 #--------------------------------------------------------------------------------------

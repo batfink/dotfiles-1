@@ -1,0 +1,47 @@
+#!/bin/zsh
+
+# ===============================================================================================
+# Docker functions
+# ===============================================================================================
+
+function d(){
+  eval "$(docker-machine env default)"
+  docker "$@"
+}
+
+function dm() {
+  eval "$(docker-machine env default)"
+  docker-machine "$@"
+}
+
+function dc(){
+  eval "$(docker-machine env default)"
+  docker-compose "$@"
+}
+
+function dcbash(){
+  eval "$(docker-machine env default)"
+
+  if [[ $1 =~ '^[0-9]+$' ]]; then
+    CONTAINER=$(docker ps | grep $1)
+  else
+    CONTAINER=$(docker-compose ps | grep foreman)
+  fi
+
+  if [[ $CONTAINER ]]; then
+    docker exec -it $(echo $CONTAINER | perl -lne 'print $& if /^[^\s]+/') bash
+  else
+    echo "Container not found"
+  fi
+}
+
+function dbbackup(){
+  mysqldump -uroot -h 192.168.99.100 shortstack_development > ~/Documents/shortstack_apps/db_backups/shortstack_development.sql
+}
+
+function dbrestore(){
+  mysql -uroot -h 192.168.99.100 -e "create database shortstack_development;"
+  mysql -uroot -h 192.168.99.100 -e "create database shortstack_test;"
+  mysql -uroot shortstack_development -h 192.168.99.100 < ~/Documents/shortstack_apps/db_backups/shortstack_development.sql
+}
+
