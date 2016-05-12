@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # ===============================================================================================
 # Docker functions
@@ -19,6 +19,10 @@ function dc(){
   docker-compose "$@"
 }
 
+function dcstop-all() {
+  docker stop $(docker ps -a -q)
+}
+
 function dcbash(){
   eval "$(docker-machine env default)"
 
@@ -35,13 +39,66 @@ function dcbash(){
   fi
 }
 
+#
+# Back up and restore database
+#
+
+# Replace filepath here with the desired backup folder
+export SS_DB_BACKUPS=/Users/codycallahan/Documents/shortstack_apps/db_backups/
+
 function dbbackup(){
-  mysqldump -uroot -h 192.168.99.100 shortstack_development > ~/Documents/shortstack_apps/db_backups/shortstack_development.sql
+  if [[ $1 != "h" ]]; then
+    echo "Backing up shortstack_development..."
+    DATE=`date +%s`
+    if [ -z $1 ]; then
+      FILENAME="shortstack_development_$(echo $DATE).sql"
+    else
+      FILENAME=$1
+    fi
+    mysqldump -uroot -h 192.168.99.100 shortstack_development > $SS_DB_BACKUPS$FILENAME
+    echo "Backup stored in $(echo $SS_DB_BACKUPS$FILENAME)"
+  else
+    echo "Usage: "
+    echo "  # Restore db with timestamped name"
+    echo "  dbbackup"
+    echo ""
+    echo "  # Restore db with custom name"
+    echo "  dbbackup my-db-backup.sql"
+  fi
 }
 
 function dbrestore(){
-  mysql -uroot -h 192.168.99.100 -e "create database shortstack_development;"
-  mysql -uroot -h 192.168.99.100 -e "create database shortstack_test;"
-  mysql -uroot shortstack_development -h 192.168.99.100 < ~/Documents/shortstack_apps/db_backups/shortstack_development.sql
+  if ! [ -z $1 ] && [[ $1 != "h" ]]; then
+    echo "Recreate databases if they don't exist..."
+    mysql -uroot -h 192.168.99.100 -e "create database shortstack_development;"
+    mysql -uroot -h 192.168.99.100 -e "create database shortstack_test;"
+
+    BACKUP=$SS_DB_BACKUPS
+    if [[ $1 =~ '^[0-9]+$' ]]; then
+      BACKUP="$(echo $BACKUP)shortstack_development_$(echo $1).sql"
+    elif [[ $1 == "latest" ]]; then
+      BACKUP="$(ls -t $(echo $SS_DB_BACKUPS)shortstack_development_*.sql | head -1)"
+    else
+      BACKUP=$BACKUP$1
+    fi
+
+    echo $BACKUP
+    if [ -f $BACKUP ]; then
+      mysql -uroot shortstack_development -h 192.168.99.100 < $BACKUP
+    else
+      echo "Restore failed: backup not found"
+    fi
+
+  else
+    echo "Usage: "
+    echo "  # Restore backup by timestamp"
+    echo "  dbrestore 1463072909"
+    echo ""
+    echo "  # Restore most recent backup (by timestamp)"
+    echo "  dbrestore latest"
+    echo ""
+    echo "  # Restore backup by name"
+    echo "  dbrestore my_db_backup"
+  fi
 }
 

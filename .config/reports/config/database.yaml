@@ -1,0 +1,10 @@
+host: 'clustrix-external-west-495757298.us-west-2.elb.amazonaws.com'
+username: 'shortstack'
+password: 'tQM%3cO$TUj3'
+port: 3306
+database: 'shortstack'
+encoding: 'utf8'
+read_timeout: 30
+write_timeout: 0
+connect_timeout: 30
+reconnect: true
