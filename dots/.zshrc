@@ -32,7 +32,6 @@ alias clock='tty-clock -c -t'
 # NVM Exports
 # -----------
 export NVM_DIR=~/.nvm
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export EDITOR='nvim'
 
 # Source Files
