@@ -8,6 +8,7 @@
 require 'openssl'
 require 'json'
 require 'yaml'
+require 'date'
 
 class CoinbaseWallet
   def initialize(key, secret)
@@ -31,10 +32,22 @@ class CoinbaseWallet
     JSON.parse(`curl -s https://api.coinbase.com/v2/accounts/primary -H "CB-ACCESS-KEY: #{@key}" -H "CB-ACCESS-SIGN: #{sig}" -H "CB-ACCESS-TIMESTAMP: #{ts}"`)
   end
 
+  def difference
+    b = balance["data"]["native_balance"]["amount"].to_f
+    start = Date.parse("2016/02/25")
+    end_date = Date.today
+    weeks = ((end_date - start) / 7).abs.to_i + 1
+    spent = weeks * 50
+    net = (b - spent).round(2)
+    color = net >= 0 ? 'green' : 'red'
+    "#{net.abs} | color=#{color}"
+  end
+
 end
 
 
 creds = YAML.load_file('/Users/codycallahan/dotfiles/secrets/coinbase.yml')
 wallet = CoinbaseWallet.new(creds["coinbase"]["api_key"], creds["coinbase"]["api_secret"])
-puts "  $#{wallet.balance["data"]["native_balance"]["amount"]}  "
+# puts "  $#{wallet.balance["data"]["native_balance"]["amount"]}  "
+puts wallet.difference
 
