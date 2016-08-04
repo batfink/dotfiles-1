@@ -46,3 +46,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # PG
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
+
+# Go Path
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=/Users/codycallahan/Documents/libs/go_appengine:$PATH # AppEngine

@@ -23,6 +23,10 @@ function dcstop-all() {
   docker stop $(docker ps -a -q)
 }
 
+function dc-restart() {
+  dc stop && dc up
+}
+
 function dcbash(){
   eval "$(docker-machine env default)"
 
