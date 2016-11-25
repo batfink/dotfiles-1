@@ -26,8 +26,11 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 alias tmator='tmuxinator'
 alias vim='nvim'
-alias el='/Applications/Electron.app/Contents/MacOS/Electron'
-alias clock='tty-clock -c -t'
+alias clock='tty-clock -cbtC4'
+alias ta='tmux attach -t'
+alias tn='tmux new-session -s'
+alias tk='tmux kill-session -t'
+alias tm='tmuxinator'
 
 # NVM Exports
 # -----------

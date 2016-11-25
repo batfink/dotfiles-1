@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<root>
+  <appdef>
+    <appname>SLACK</appname>
+    <equal>com.tinyspeck.slackmacgap</equal>
+  </appdef>
+  <item>
+    <name>_ Slack Bindings</name>
+    <item>
+      <name> Next/Previous Messages </name>
+      <identifier>private.next_prev_messages</identifier>
+      <only>SLACK</only>
+
+      <!-- Next Message -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::K, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_UP, ModifierFlag::OPTION_L
+      </autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::J, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L
+      </autogen>
+
+      <!-- Next NEW Message-->
+      <autogen>
+        __KeyToKey__
+        KeyCode::K, ModifierFlag::CONTROL_L, ModifierFlag::SHIFT_L,
+        KeyCode::CURSOR_UP, ModifierFlag::OPTION_L, ModifierFlag::SHIFT_L
+      </autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::J, ModifierFlag::CONTROL_L, ModifierFlag::SHIFT_L,
+        KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L, ModifierFlag::SHIFT_L
+      </autogen>
+    </item>
+  </item>
+
+  <item>
+    <name>_ Vim Bindings</name>
+    <item>
+
+      <name>Vim movements vertical</name>
+      <identifier>private.vim_vertical</identifier>
+      <only>TERMINAL</only>
+      <autogen>
+        __KeyToKey__
+        KeyCode::P, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_UP
+      </autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::N, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_DOWN
+      </autogen>
+    </item>
+
+    <!-- item>
+      <name>Vim movements horizontal</name>
+      <identifier>private.vim_horizontal</identifier>
+      <only>FINDER</only>
+      <autogen>
+        __KeyToKey__
+        KeyCode::H, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_LEFT
+      </autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::L, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_RIGHT
+      </autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::K, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_UP
+      </autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::J, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_DOWN
+      </autogen>
+    </item-->
+
+
+    <item>
+      <name>Vim insert mode bindings</name>
+      <identifier>vim.insert_mode</identifier>
+      <not>VI</not>
+      <not>Atom</not>
+      <not>TERMINAL</not>
+      <not>VIRTUALMACHINE</not>
+      <autogen>
+        __KeyToKey__
+        KeyCode::H, ModifierFlag::CONTROL_L,
+        KeyCode::DELETE
+      </autogen>
+      <not>EMACS</not>
+      <not>XCODE</not>
+      <not>VIRTUALMACHINE</not>
+      <autogen>
+        __KeyToKey__
+        KeyCode::W, ModifierFlag::CONTROL_L,
+        KeyCode::DELETE, ModifierFlag::OPTION_L
+      </autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::U, ModifierFlag::CONTROL_L,
+        KeyCode::DELETE, ModifierFlag::COMMAND_L
+      </autogen>
+    </item>
+
+  </item>
+</root>

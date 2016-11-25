@@ -59,7 +59,7 @@ function dbbackup(){
     else
       FILENAME=$1
     fi
-    mysqldump -uroot -h 192.168.99.100 shortstack_development > $SS_DB_BACKUPS$FILENAME
+    mysqldump -uroot -h 127.0.0.1 -P 3306 shortstack_development > $SS_DB_BACKUPS$FILENAME
     echo "Backup stored in $(echo $SS_DB_BACKUPS$FILENAME)"
   else
     echo "Usage: "
@@ -74,8 +74,8 @@ function dbbackup(){
 function dbrestore(){
   if ! [ -z $1 ] && [[ $1 != "h" ]]; then
     echo "Recreate databases if they don't exist..."
-    mysql -uroot -h 192.168.99.100 -e "create database shortstack_development;"
-    mysql -uroot -h 192.168.99.100 -e "create database shortstack_test;"
+    mysql -uroot -h 127.0.0.1 -P 3306 -e "create database shortstack_development;"
+    mysql -uroot -h 127.0.0.1 -P 3306 -e "create database shortstack_test;"
 
     BACKUP=$SS_DB_BACKUPS
     if [[ $1 =~ '^[0-9]+$' ]]; then
@@ -88,7 +88,7 @@ function dbrestore(){
 
     echo $BACKUP
     if [ -f $BACKUP ]; then
-      mysql -uroot shortstack_development -h 192.168.99.100 < $BACKUP
+      mysql -uroot shortstack_development -h 127.0.0.1 -P 3306 < $BACKUP
     else
       echo "Restore failed: backup not found"
     fi

@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>_ Applications</name>
+
+    <!-- activate atom -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_ATOM</name>
+      <url type="file">/Applications/Atom.app</url>
+    </vkopenurldef>
+
+    <!-- activate chrome -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_CHROME</name>
+      <url type="file">/Applications/Google Chrome.app</url>
+    </vkopenurldef>
+
+    <!-- activate xcode -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_XCODE</name>
+      <url type="file">/Applications/Xcode.app</url>
+    </vkopenurldef>
+
+    <!-- activate iterm -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_ITERM</name>
+      <url type="file">/Applications/iTerm.app</url>
+    </vkopenurldef>
+
+    <!-- activate messages -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_MESSAGES</name>
+      <url type="file">/Applications/Messages.app</url>
+    </vkopenurldef>
+
+    <!-- activate spotify -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_SPOTIFY</name>
+      <url type="file">/Applications/Spotify.app</url>
+    </vkopenurldef>
+
+    <!-- activate vim -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_VIM</name>
+      <url type="file">/Applications/MacVim.app</url>
+    </vkopenurldef>
+
+    <!-- activate vim -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_VIM</name>
+      <url type="file">/Applications/MacVim.app</url>
+    </vkopenurldef>
+
+    <!-- activate emacs -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_ELECTRON</name>
+      <url type="file">/Applications/Electron.app</url>
+    </vkopenurldef>
+
+    <!-- activate slack -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_SLACK</name>
+      <url type="file">/Applications/Slack.app</url>
+    </vkopenurldef>
+
+    <!-- activate virtualbox -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_VIRTUALBOX</name>
+      <url type="file">/Applications/VirtualBox.app</url>
+    </vkopenurldef>
+
+    <!-- KEYBINDINGS FOR OPENING APPS -->
+    <item>
+      <name>c-s-a open atom</name>
+      <identifier>c-s-a open atom</identifier>
+      <autogen>
+        __KeyToKey__
+        KeyCode::A, ModifierFlag::COMMAND_L | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        KeyCode::VK_OPEN_URL_APP_ATOM,
+      </autogen>
+    </item>
+
+    <item>
+      <name>c-s-g open chrome</name>
+      <identifier>c-s-g open chrome</identifier>
+      <autogen>
+        __KeyToKey__
+        KeyCode::G, ModifierFlag::COMMAND_L | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        KeyCode::VK_OPEN_URL_APP_CHROME,
+      </autogen>
+    </item>
+
+    <item>
+      <name>c-s-g open xcode</name>
+      <identifier>c-s-g open xcode</identifier>
+      <autogen>
+        __KeyToKey__
+        KeyCode::X, ModifierFlag::COMMAND_L | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        KeyCode::VK_OPEN_URL_APP_XCODE,
+      </autogen>
+    </item>
+
+    <item>
+      <name>c-s-t open iterm</name>
+      <identifier>c-s-t open iterm</identifier>
+      <autogen>
+        __KeyToKey__
+        KeyCode::T, ModifierFlag::COMMAND_L | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        KeyCode::VK_OPEN_URL_APP_ITERM,
+      </autogen>
+    </item>
+
+    <item>
+      <name>c-s-m open messages</name>
+      <identifier>c-s-m open messages</identifier>
+      <autogen>
+        __KeyToKey__
+        KeyCode::M, ModifierFlag::COMMAND_L | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        KeyCode::VK_OPEN_URL_APP_MESSAGES,
+      </autogen>
+    </item>
+
+    <item>
+      <name>c-s-s open spotify</name>
+      <identifier>c-s-s open spotify</identifier>
+      <autogen>
+        __KeyToKey__
+        KeyCode::S, ModifierFlag::COMMAND_L | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        KeyCode::VK_OPEN_URL_APP_SPOTIFY,
+      </autogen>
+    </item>
+
+    <item>
+      <name>c-s-v open vim</name>
+      <identifier>c-s-v open vim</identifier>
+      <autogen>
+        __KeyToKey__
+        KeyCode::V, ModifierFlag::COMMAND_L | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        KeyCode::VK_OPEN_URL_APP_VIM,
+      </autogen>
+    </item>
+
+    <item>
+      <name>c-s-e open electron</name>
+      <identifier>c-s-e open electron</identifier>
+      <autogen>
+        __KeyToKey__
+        KeyCode::E, ModifierFlag::COMMAND_L | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        KeyCode::VK_OPEN_URL_APP_ELECTRON,
+      </autogen>
+    </item>
+
+    <item>
+      <name>c-s-l open slack</name>
+      <identifier>c-s-l open slack</identifier>
+      <autogen>
+        __KeyToKey__
+        KeyCode::L, ModifierFlag::COMMAND_L | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        KeyCode::VK_OPEN_URL_APP_SLACK,
+      </autogen>
+    </item>
+
+    <item>
+      <name>c-s-b open virtualbox</name>
+      <identifier>c-s-b open virtualbox</identifier>
+      <autogen>
+        __KeyToKey__
+        KeyCode::V, ModifierFlag::COMMAND_L | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        KeyCode::VK_OPEN_URL_APP_VIRTUALBOX,
+      </autogen>
+    </item>
+  </item>
+</root>
